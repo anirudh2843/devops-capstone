@@ -18,13 +18,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t python-flask-app:1.0 .'
+                bat 'docker build -t python-flask-app:2.0 .'
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl apply -f k8s/'
+                bat 'kubectl apply -f k8s/deployment.yaml'
+                bat 'kubectl apply -f k8s/service.yaml'
                 bat 'kubectl get pods'
                 bat 'kubectl get svc'
             }
