@@ -11,4 +11,4 @@ EXPOSE 5000
 # copy project files
 COPY app.py .
 # export port
-CMD [ "python", "app/app.py" ]
+CMD [ "python", "app.py" ]
